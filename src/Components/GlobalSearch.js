@@ -11,7 +11,11 @@ export const GlobalSearch = () => {
     useEffect(() => 
         (async()=>setData(await DataFetch('list')))()
     , [])
-    const filterCryptos = data.filter(crypto => crypto.name.toLowerCase().includes(filter.toLowerCase()))
+    const filterCryptos = data.filter(crypto => {
+        if(filter.length>1)
+        return crypto.name.toLowerCase().includes(filter.toLowerCase())
+        }
+        )
 
     return <div className='w-full flex-row'>
         <SearchBar vrednost={filter} setVrednost={setFilter} velicina={'3/12'} text={'Search for crypto globaly...'} />
