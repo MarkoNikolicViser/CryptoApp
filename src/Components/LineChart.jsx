@@ -39,28 +39,21 @@ export const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
     },
   },
 };
 
-export const LineChart = ({ dataChart }) => {
+export const LineChart = ({ dataChart, days }) => {
   const { DateConversion } = HelperFunction()
 
   const data = {
     labels: dataChart.prices.map(m => DateConversion(m[0])),
     datasets: [
       {
-        label: 'Price in euros for last 24h',
+        label: `Price in euros for last ${days} day/s`,
         data: dataChart.prices.map(m => m[1]),
         borderColor: 'rgb(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: 'Dataset 2',
-        //   data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },
     ],
   };

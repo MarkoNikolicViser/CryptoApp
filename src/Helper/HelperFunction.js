@@ -8,7 +8,11 @@ export const HelperFunction = () => {
                 return '0' + string
                 else return string
         }
-        return DodajNulu(date.getHours()) + ':' + DodajNulu(date.getMinutes())
+        return  DodajNulu(date.getDate())+'/'+
+        DodajNulu(date.getMonth()+1)+'/'+
+        DodajNulu(date.getFullYear())+' '+
+         DodajNulu(date.getHours()) + ':' +
+          DodajNulu(date.getMinutes())
     }
 
     return { DateConversion }
